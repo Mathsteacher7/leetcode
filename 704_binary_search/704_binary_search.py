@@ -10,17 +10,3 @@ def search(nums: list[int], target: int) -> int:
         else:
             return mid_pointer
     return -1
-
-
-test_data_one = [1, 3, 5, 6, 7, 8, 9]
-print(search(test_data_one, 8))
-
-test_data_array_with_one = [5]
-print(search(test_data_array_with_one, 5))
-print(search(test_data_array_with_one, 3))
-
-test_data_for_smaller = [-1, 0, 3, 5, 9, 12]
-print(search(test_data_for_smaller, -1))
-
-test_data_for_two = [1, 3]
-print(search(test_data_for_two, 3))
