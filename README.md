@@ -21,14 +21,14 @@ I do use AI outside the editor, in two ways:
 
 The reasoning, the code and the bugs are mine. The "What I learned" section in each problem's README records the mistakes I made along the way.
 
-The READMEs for the first seven problems were drafted with AI from my working sessions. From then on, I write them myself.
+The problem READMEs are drafted with AI from my working sessions, and I review them against what actually happened.
 
 ## Structure
 
-Each problem has its own folder, named with the LeetCode number (zero-padded so they sort in order) and the problem's title:
+Each problem has its own folder, named with the LeetCode number and the problem's title:
 
 ```
-0146-lru-cache/
+146-lru-cache/
   solution.py
   README.md
 ```
@@ -45,13 +45,16 @@ Every problem README follows the same outline:
 
 | # | Problem | Difficulty | Pattern | Time | Space |
 |---|---|---|---|---|---|
-| 3 | [Longest Substring Without Repeating Characters](0003-longest-substring-without-repeating-characters/) | Medium | Sliding window | O(n) | O(k) |
-| 11 | [Container With Most Water](0011-container-with-most-water/) | Medium | Two pointers | O(n) | O(1) |
-| 49 | [Group Anagrams](0049-group-anagrams/) | Medium | Hashing | O(n · k log k) | O(n · k) |
-| 121 | [Best Time to Buy and Sell Stock](0121-best-time-to-buy-and-sell-stock/) | Easy | Single pass | O(n) | O(1) |
-| 146 | [LRU Cache](0146-lru-cache/) | Medium | Design, hashing | O(1) per op | O(capacity) |
-| 242 | [Valid Anagram](0242-valid-anagram/) | Easy | Hashing | O(n) | O(k) |
-| 380 | [Insert Delete GetRandom O(1)](0380-insert-delete-getrandom-o1/) | Medium | Design, hashing | O(1) per op | O(n) |
+| 3 | [Longest Substring Without Repeating Characters](3-longest-substring-without-repeating-characters/) | Medium | Sliding window | O(n) | O(k) |
+| 11 | [Container With Most Water](11-container-with-most-water/) | Medium | Two pointers | O(n) | O(1) |
+| 20 | [Valid Parentheses](20-valid-parentheses/) | Easy | Stack | O(n) | O(n) |
+| 49 | [Group Anagrams](49-group-anagrams/) | Medium | Hashing | O(n · k log k) | O(n · k) |
+| 121 | [Best Time to Buy and Sell Stock](121-best-time-to-buy-and-sell-stock/) | Easy | Single pass | O(n) | O(1) |
+| 146 | [LRU Cache](146-lru-cache/) | Medium | Design, hashing | O(1) per op | O(capacity) |
+| 153 | [Find Minimum in Rotated Sorted Array](153-find-minimum-in-rotated-sorted-array/) | Medium | Binary search | O(log n) | O(1) |
+| 242 | [Valid Anagram](242-valid-anagram/) | Easy | Hashing | O(n) | O(k) |
+| 380 | [Insert Delete GetRandom O(1)](380-insert-delete-getrandom-o1/) | Medium | Design, hashing | O(1) per op | O(n) |
+| 704 | [Binary Search](704-binary-search/) | Easy | Binary search | O(log n) | O(1) |
 
 ## Patterns covered so far
 
@@ -60,3 +63,5 @@ Every problem README follows the same outline:
 - **Single pass with a running summary:** scanning once and keeping only what the past tells you (121)
 - **Sliding window:** two pointers moving in the same direction over a sequence (3)
 - **Two pointers from opposite ends:** moving towards each other, with a reason for which one moves (11)
+- **Stack:** last in, first out, for anything that must be closed or undone in reverse order (20)
+- **Binary search:** halving a window that always contains the answer, for a target or for a boundary (153, 704)
