@@ -49,9 +49,11 @@ Every problem README follows the same outline:
 | 11 | [Container With Most Water](11-container-with-most-water/) | Medium | Two pointers | O(n) | O(1) |
 | 20 | [Valid Parentheses](20-valid-parentheses/) | Easy | Stack | O(n) | O(n) |
 | 49 | [Group Anagrams](49-group-anagrams/) | Medium | Hashing | O(n · k log k) | O(n · k) |
+| 104 | [Maximum Depth of Binary Tree](104-maximum-depth-of-binary-tree/) | Easy | Tree, recursion (DFS) | O(n) | O(h) |
 | 121 | [Best Time to Buy and Sell Stock](121-best-time-to-buy-and-sell-stock/) | Easy | Single pass | O(n) | O(1) |
 | 146 | [LRU Cache](146-lru-cache/) | Medium | Design, hashing | O(1) per op | O(capacity) |
 | 153 | [Find Minimum in Rotated Sorted Array](153-find-minimum-in-rotated-sorted-array/) | Medium | Binary search | O(log n) | O(1) |
+| 226 | [Invert Binary Tree](226-invert-binary-tree/) | Easy | Tree, recursion (DFS) | O(n) | O(h) |
 | 242 | [Valid Anagram](242-valid-anagram/) | Easy | Hashing | O(n) | O(k) |
 | 380 | [Insert Delete GetRandom O(1)](380-insert-delete-getrandom-o1/) | Medium | Design, hashing | O(1) per op | O(n) |
 | 704 | [Binary Search](704-binary-search/) | Easy | Binary search | O(log n) | O(1) |
@@ -65,3 +67,4 @@ Every problem README follows the same outline:
 - **Two pointers from opposite ends:** moving towards each other, with a reason for which one moves (11)
 - **Stack:** last in, first out, for anything that must be closed or undone in reverse order (20)
 - **Binary search:** halving a window that always contains the answer, for a target or for a boundary (153, 704)
+- **Trees and recursion (DFS):** a base case for `None`, then each call handles its own subtree and the parent combines its children's results (104, 226)
