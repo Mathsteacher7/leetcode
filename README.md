@@ -45,6 +45,7 @@ Every problem README follows the same outline:
 
 | # | Problem | Difficulty | Pattern | Time | Space |
 |---|---|---|---|---|---|
+| 1 | [Two Sum](1-two-sum/) | Easy | Hashing | O(n) | O(n) |
 | 3 | [Longest Substring Without Repeating Characters](3-longest-substring-without-repeating-characters/) | Medium | Sliding window | O(n) | O(k) |
 | 11 | [Container With Most Water](11-container-with-most-water/) | Medium | Two pointers | O(n) | O(1) |
 | 20 | [Valid Parentheses](20-valid-parentheses/) | Easy | Stack | O(n) | O(n) |
@@ -54,11 +55,15 @@ Every problem README follows the same outline:
 | 100 | [Same Tree](100-same-tree/) | Easy | Tree, recursion (DFS) | O(n) | O(h) |
 | 104 | [Maximum Depth of Binary Tree](104-maximum-depth-of-binary-tree/) | Easy | Tree, recursion (DFS) | O(n) | O(h) |
 | 121 | [Best Time to Buy and Sell Stock](121-best-time-to-buy-and-sell-stock/) | Easy | Single pass | O(n) | O(1) |
+| 136 | [Single Number](136-single-number/) | Easy | Bit manipulation | O(n) | O(1) |
 | 141 | [Linked List Cycle](141-linked-list-cycle/) | Easy | Linked list, hashing | O(n) | O(n) |
 | 142 | [Linked List Cycle II](142-linked-list-cycle-ii/) | Medium | Fast and slow pointers | O(n) | O(1) |
 | 146 | [LRU Cache](146-lru-cache/) | Medium | Design, hashing | O(1) per op | O(capacity) |
 | 153 | [Find Minimum in Rotated Sorted Array](153-find-minimum-in-rotated-sorted-array/) | Medium | Binary search | O(log n) | O(1) |
+| 198 | [House Robber](198-house-robber/) | Medium | Dynamic programming | O(n) | O(1) |
+| 200 | [Number of Islands](200-number-of-islands/) | Medium | Graph, DFS | O(rows × cols) | O(rows × cols) |
 | 206 | [Reverse Linked List](206-reverse-linked-list/) | Easy | Linked list | O(n) | O(1) |
+| 213 | [House Robber II](213-house-robber-ii/) | Medium | Dynamic programming | O(n) | O(n) |
 | 226 | [Invert Binary Tree](226-invert-binary-tree/) | Easy | Tree, recursion (DFS) | O(n) | O(h) |
 | 242 | [Valid Anagram](242-valid-anagram/) | Easy | Hashing | O(n) | O(k) |
 | 380 | [Insert Delete GetRandom O(1)](380-insert-delete-getrandom-o1/) | Medium | Design, hashing | O(1) per op | O(n) |
@@ -67,7 +72,7 @@ Every problem README follows the same outline:
 
 ## Patterns covered so far
 
-- **Hashing:** using a dict or set for O(1) lookup, and choosing what the key and value should be (49, 141, 146, 242, 380)
+- **Hashing:** using a dict or set for O(1) lookup, and choosing what the key and value should be (1, 49, 141, 146, 242, 380)
 - **Design:** classes whose state persists between calls, often combining two data structures so each covers the other's weakness (146, 380)
 - **Single pass with a running summary:** scanning once and keeping only what the past tells you (121)
 - **Sliding window:** two pointers moving in the same direction over a sequence (3)
@@ -77,4 +82,6 @@ Every problem README follows the same outline:
 - **Trees and recursion (DFS):** a base case for `None`, then each call handles its own subtree and the parent combines its children's results (100, 104, 226)
 - **Linked lists:** re-linking existing nodes by moving labels and changing `next` pointers, always saving a link before overwriting it (21, 141, 142, 206, 876)
 - **Fast and slow pointers:** two pointers moving at different speeds, to find the middle of a list or detect a cycle and where it starts (142, 876)
-- **Dynamic programming:** answering a big question from smaller versions of itself, computing each smaller answer once and keeping only what's needed (70)
+- **Dynamic programming:** answering a big question from smaller versions of itself, computing each smaller answer once and keeping only what's needed (70, 198, 213)
+- **Graphs (grid DFS):** scanning a grid and exploring each connected region once, tracking visited cells (200)
+- **Bit manipulation:** using XOR's algebra to cancel out pairs without extra space (136)
