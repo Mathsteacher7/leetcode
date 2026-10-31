@@ -9,7 +9,3 @@ def lengthOfLongestSubstring(s: str) -> int:
         longest_substring = max(index - left_edge + 1, longest_substring)
 
     return longest_substring
-
-
-print(lengthOfLongestSubstring("tmmzuxt"))
-print(lengthOfLongestSubstring("abba"))

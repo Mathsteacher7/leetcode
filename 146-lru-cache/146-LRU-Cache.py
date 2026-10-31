@@ -17,9 +17,3 @@ class LRUCache:
             first_key = next(iter(self.cache))
             del self.cache[first_key]
         self.cache[key] = value
-
-
-# Your LRUCache object will be instantiated and called as such:
-# obj = LRUCache(capacity)
-# param_1 = obj.get(key)
-# obj.put(key,value)
