@@ -50,8 +50,11 @@ Every problem README follows the same outline:
 | 11 | [Container With Most Water](11-container-with-most-water/) | Medium | Two pointers | O(n) | O(1) |
 | 20 | [Valid Parentheses](20-valid-parentheses/) | Easy | Stack | O(n) | O(n) |
 | 21 | [Merge Two Sorted Lists](21-merge-two-sorted-lists/) | Easy | Linked list (recursion and loop) | O(n + m) | O(1) loop, O(n + m) recursion |
+| 46 | [Permutations](46-permutations/) | Medium | Backtracking | O(n · n!) | O(n) |
 | 49 | [Group Anagrams](49-group-anagrams/) | Medium | Hashing | O(n · k log k) | O(n · k) |
+| 56 | [Merge Intervals](56-merge-intervals/) | Medium | Intervals, sorting | O(n log n) | O(n) |
 | 70 | [Climbing Stairs](70-climbing-stairs/) | Easy | Dynamic programming | O(n) | O(1) |
+| 78 | [Subsets](78-subsets/) | Medium | Backtracking | O(n · 2ⁿ) | O(n) |
 | 100 | [Same Tree](100-same-tree/) | Easy | Tree, recursion (DFS) | O(n) | O(h) |
 | 104 | [Maximum Depth of Binary Tree](104-maximum-depth-of-binary-tree/) | Easy | Tree, recursion (DFS) | O(n) | O(h) |
 | 121 | [Best Time to Buy and Sell Stock](121-best-time-to-buy-and-sell-stock/) | Easy | Single pass | O(n) | O(1) |
@@ -66,13 +69,14 @@ Every problem README follows the same outline:
 | 213 | [House Robber II](213-house-robber-ii/) | Medium | Dynamic programming | O(n) | O(n) |
 | 226 | [Invert Binary Tree](226-invert-binary-tree/) | Easy | Tree, recursion (DFS) | O(n) | O(h) |
 | 242 | [Valid Anagram](242-valid-anagram/) | Easy | Hashing | O(n) | O(k) |
+| 347 | [Top K Frequent Elements](347-top-k-frequent-elements/) | Medium | Hashing, bucket sort, heap | O(n) buckets, O(n + m log k) heap | O(n) |
 | 380 | [Insert Delete GetRandom O(1)](380-insert-delete-getrandom-o1/) | Medium | Design, hashing | O(1) per op | O(n) |
 | 704 | [Binary Search](704-binary-search/) | Easy | Binary search | O(log n) | O(1) |
 | 876 | [Middle of the Linked List](876-middle-of-the-linked-list/) | Easy | Fast and slow pointers | O(n) | O(1) |
 
 ## Patterns covered so far
 
-- **Hashing:** using a dict or set for O(1) lookup, and choosing what the key and value should be (1, 49, 141, 146, 242, 380)
+- **Hashing:** using a dict or set for O(1) lookup, and choosing what the key and value should be (1, 49, 141, 146, 242, 347, 380)
 - **Design:** classes whose state persists between calls, often combining two data structures so each covers the other's weakness (146, 380)
 - **Single pass with a running summary:** scanning once and keeping only what the past tells you (121)
 - **Sliding window:** two pointers moving in the same direction over a sequence (3)
@@ -85,3 +89,7 @@ Every problem README follows the same outline:
 - **Dynamic programming:** answering a big question from smaller versions of itself, computing each smaller answer once and keeping only what's needed (70, 198, 213)
 - **Graphs (grid DFS):** scanning a grid and exploring each connected region once, tracking visited cells (200)
 - **Bit manipulation:** using XOR's algebra to cancel out pairs without extra space (136)
+- **Backtracking:** walking a tree of choices with one shared list: choose, explore, undo (46, 78)
+- **Heaps:** a priority queue that keeps the smallest item at the front, to track the top `k` without sorting everything (347)
+- **Bucket sort:** using a list position to carry meaning, such as a frequency, instead of comparing items (347)
+- **Intervals:** sort by start, then one pass comparing each interval with the last one built (56)
