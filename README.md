@@ -48,6 +48,7 @@ Every problem README follows the same outline:
 | 1 | [Two Sum](1-two-sum/) | Easy | Hashing | O(n) | O(n) |
 | 3 | [Longest Substring Without Repeating Characters](3-longest-substring-without-repeating-characters/) | Medium | Sliding window | O(n) | O(k) |
 | 11 | [Container With Most Water](11-container-with-most-water/) | Medium | Two pointers | O(n) | O(1) |
+| 15 | [3Sum](15-3sum/) | Medium | Sorting, two pointers | O(n²) | O(1) |
 | 20 | [Valid Parentheses](20-valid-parentheses/) | Easy | Stack | O(n) | O(n) |
 | 21 | [Merge Two Sorted Lists](21-merge-two-sorted-lists/) | Easy | Linked list (recursion and loop) | O(n + m) | O(1) loop, O(n + m) recursion |
 | 46 | [Permutations](46-permutations/) | Medium | Backtracking | O(n · n!) | O(n) |
@@ -59,6 +60,7 @@ Every problem README follows the same outline:
 | 102 | [Binary Tree Level Order Traversal](102-binary-tree-level-order-traversal/) | Medium | Tree, BFS | O(n) | O(n) |
 | 104 | [Maximum Depth of Binary Tree](104-maximum-depth-of-binary-tree/) | Easy | Tree, recursion (DFS) | O(n) | O(h) |
 | 121 | [Best Time to Buy and Sell Stock](121-best-time-to-buy-and-sell-stock/) | Easy | Single pass | O(n) | O(1) |
+| 125 | [Valid Palindrome](125-valid-palindrome/) | Easy | Two pointers | O(n) | O(1) |
 | 136 | [Single Number](136-single-number/) | Easy | Bit manipulation | O(n) | O(1) |
 | 141 | [Linked List Cycle](141-linked-list-cycle/) | Easy | Linked list, hashing | O(n) | O(n) |
 | 142 | [Linked List Cycle II](142-linked-list-cycle-ii/) | Medium | Fast and slow pointers | O(n) | O(1) |
@@ -68,35 +70,43 @@ Every problem README follows the same outline:
 | 200 | [Number of Islands](200-number-of-islands/) | Medium | Graph, DFS | O(rows × cols) | O(rows × cols) |
 | 206 | [Reverse Linked List](206-reverse-linked-list/) | Easy | Linked list | O(n) | O(1) |
 | 207 | [Course Schedule](207-can-finish/) | Medium | Graph, topological sort (BFS) | O(V + E) | O(V + E) |
+| 208 | [Implement Trie (Prefix Tree)](208-implement-trie-prefix-tree/) | Medium | Trie, design | O(L) per op | O(total letters) |
 | 210 | [Course Schedule II](210-course-schedule-ii/) | Medium | Graph, topological sort (BFS) | O(V + E) | O(V + E) |
 | 213 | [House Robber II](213-house-robber-ii/) | Medium | Dynamic programming | O(n) | O(n) |
 | 226 | [Invert Binary Tree](226-invert-binary-tree/) | Easy | Tree, recursion (DFS) | O(n) | O(h) |
 | 238 | [Product of Array Except Self](238-product-of-array-except-self/) | Medium | Prefix and suffix products | O(n) | O(1) |
 | 242 | [Valid Anagram](242-valid-anagram/) | Easy | Hashing | O(n) | O(k) |
+| 268 | [Missing Number](268-missing-number/) | Easy | Maths, bit manipulation | O(n) | O(1) |
+| 322 | [Coin Change](322-coin-change/) | Medium | Dynamic programming | O(amount × coins) | O(amount) |
 | 347 | [Top K Frequent Elements](347-top-k-frequent-elements/) | Medium | Hashing, bucket sort, heap | O(n) buckets, O(n + m log k) heap | O(n) |
 | 380 | [Insert Delete GetRandom O(1)](380-insert-delete-getrandom-o1/) | Medium | Design, hashing | O(1) per op | O(n) |
 | 704 | [Binary Search](704-binary-search/) | Easy | Binary search | O(log n) | O(1) |
+| 739 | [Daily Temperatures](739-daily-temperatures/) | Medium | Monotonic stack | O(n) | O(n) |
 | 876 | [Middle of the Linked List](876-middle-of-the-linked-list/) | Easy | Fast and slow pointers | O(n) | O(1) |
 
 ## Patterns covered so far
 
 - **Hashing:** using a dict or set for O(1) lookup, and choosing what the key and value should be (1, 49, 141, 146, 242, 347, 380)
-- **Design:** classes whose state persists between calls, often combining two data structures so each covers the other's weakness (146, 380)
+- **Design:** classes whose state persists between calls, often combining two data structures so each covers the other's weakness (146, 208, 380)
 - **Single pass with a running summary:** scanning once and keeping only what the past tells you (121)
 - **Sliding window:** two pointers moving in the same direction over a sequence (3)
-- **Two pointers from opposite ends:** moving towards each other, with a reason for which one moves (11)
+- **Two pointers from opposite ends:** moving towards each other, with a reason for which one moves (11, 15, 125)
 - **Stack:** last in, first out, for anything that must be closed or undone in reverse order (20)
+- **Monotonic stack:** a stack of items still waiting for their answer; each new item settles the waiting ones it beats, then waits itself (739)
 - **Binary search:** halving a window that always contains the answer, for a target or for a boundary (153, 704)
 - **Trees and recursion (DFS):** a base case for `None`, then each call handles its own subtree and the parent combines its children's results (100, 104, 226)
 - **Linked lists:** re-linking existing nodes by moving labels and changing `next` pointers, always saving a link before overwriting it (21, 141, 142, 206, 876)
 - **Fast and slow pointers:** two pointers moving at different speeds, to find the middle of a list or detect a cycle and where it starts (142, 876)
-- **Dynamic programming:** answering a big question from smaller versions of itself, computing each smaller answer once and keeping only what's needed (70, 198, 213)
+- **Dynamic programming:** answering a big question from smaller versions of itself, computing each smaller answer once and keeping only what's needed (70, 198, 213, 322)
 - **Graphs (grid DFS):** scanning a grid and exploring each connected region once, tracking visited cells (200)
 - **Breadth-first search:** a queue (`collections.deque`) visits nodes in the order they were found, level by level (102, 207, 210)
 - **Topological sort (Kahn's algorithm):** building an adjacency list and in-degree counts, then taking nodes whose count reaches 0; a cycle is whatever never gets taken (207, 210)
-- **Bit manipulation:** using XOR's algebra to cancel out pairs without extra space (136)
+- **Bit manipulation:** using XOR's algebra to cancel out pairs without extra space (136, 268)
 - **Backtracking:** walking a tree of choices with one shared list: choose, explore, undo (46, 78)
 - **Heaps:** a priority queue that keeps the smallest item at the front, to track the top `k` without sorting everything (347)
 - **Bucket sort:** using a list position to carry meaning, such as a frequency, instead of comparing items (347)
 - **Intervals:** sort by start, then one pass comparing each interval with the last one built (56)
 - **Prefix and suffix products:** a running value in each direction, so each position combines "everything to the left" and "everything to the right" without recomputing (238)
+- **Tries:** a tree of letters where words with the same beginning share a path, for fast prefix lookups (208)
+- **Maths shortcuts:** a formula instead of a loop, such as the sum of 0 to n (268)
+- **Sorting first:** putting the input in order so that pointers can move with a reason and duplicates sit next to each other (15, 56)
