@@ -50,6 +50,7 @@ Every problem README follows the same outline:
 | 11 | [Container With Most Water](11-container-with-most-water/) | Medium | Two pointers | O(n) | O(1) |
 | 15 | [3Sum](15-3sum/) | Medium | Sorting, two pointers | O(n²) | O(1) |
 | 17 | [Letter Combinations of a Phone Number](17-letter-combinations-of-a-phone-number/) | Medium | Backtracking | O(4ⁿ · n) | O(n) |
+| 19 | [Remove Nth Node From End of List](19-remove-nth-node-from-end-of-list/) | Medium | Linked list, two pointers, dummy node | O(n) | O(1) |
 | 20 | [Valid Parentheses](20-valid-parentheses/) | Easy | Stack | O(n) | O(n) |
 | 21 | [Merge Two Sorted Lists](21-merge-two-sorted-lists/) | Easy | Linked list (recursion and loop) | O(n + m) | O(1) loop, O(n + m) recursion |
 | 22 | [Generate Parentheses](22-generate-parentheses/) | Medium | Backtracking | O(4ⁿ / √n) | O(n) |
@@ -58,6 +59,7 @@ Every problem README follows the same outline:
 | 46 | [Permutations](46-permutations/) | Medium | Backtracking | O(n · n!) | O(n) |
 | 49 | [Group Anagrams](49-group-anagrams/) | Medium | Hashing | O(n · k log k) | O(n · k) |
 | 56 | [Merge Intervals](56-merge-intervals/) | Medium | Intervals, sorting | O(n log n) | O(n) |
+| 57 | [Insert Interval](57-insert-interval/) | Medium | Intervals | O(n) | O(n) |
 | 62 | [Unique Paths](62-unique-paths/) | Medium | Dynamic programming (2D), maths | O(m · n) table, O(m + n) formula | O(m · n) table, O(1) formula |
 | 70 | [Climbing Stairs](70-climbing-stairs/) | Easy | Dynamic programming | O(n) | O(1) |
 | 78 | [Subsets](78-subsets/) | Medium | Backtracking | O(n · 2ⁿ) | O(n) |
@@ -70,10 +72,12 @@ Every problem README follows the same outline:
 | 121 | [Best Time to Buy and Sell Stock](121-best-time-to-buy-and-sell-stock/) | Easy | Single pass | O(n) | O(1) |
 | 125 | [Valid Palindrome](125-valid-palindrome/) | Easy | Two pointers | O(n) | O(1) |
 | 128 | [Longest Consecutive Sequence](128-longest-consecutive-sequence/) | Medium | Hashing | O(n) | O(n) |
+| 133 | [Clone Graph](133-clone-graph/) | Medium | Graph, DFS, hashing | O(V + E) | O(V) |
 | 136 | [Single Number](136-single-number/) | Easy | Bit manipulation | O(n) | O(1) |
 | 139 | [Word Break](139-word-break/) | Medium | Dynamic programming, hashing | O(n³) | O(n + dictionary) |
 | 141 | [Linked List Cycle](141-linked-list-cycle/) | Easy | Linked list, hashing | O(n) | O(n) |
 | 142 | [Linked List Cycle II](142-linked-list-cycle-ii/) | Medium | Fast and slow pointers | O(n) | O(1) |
+| 143 | [Reorder List](143-reorder-list/) | Medium | Linked list, fast and slow pointers, reversal | O(n) | O(1) |
 | 146 | [LRU Cache](146-lru-cache/) | Medium | Design, hashing | O(1) per op | O(capacity) |
 | 153 | [Find Minimum in Rotated Sorted Array](153-find-minimum-in-rotated-sorted-array/) | Medium | Binary search | O(log n) | O(1) |
 | 155 | [Min Stack](155-min-stack/) | Medium | Stack, design | O(1) per op | O(n) |
@@ -99,10 +103,11 @@ Every problem README follows the same outline:
 | 704 | [Binary Search](704-binary-search/) | Easy | Binary search | O(log n) | O(1) |
 | 739 | [Daily Temperatures](739-daily-temperatures/) | Medium | Monotonic stack | O(n) | O(n) |
 | 876 | [Middle of the Linked List](876-middle-of-the-linked-list/) | Easy | Fast and slow pointers | O(n) | O(1) |
+| 994 | [Rotting Oranges](994-rotting-oranges/) | Medium | Grid, multi-source BFS | O(m · n) | O(m · n) |
 
 ## Patterns covered so far
 
-- **Hashing:** using a dict or set for O(1) lookup, and choosing what the key and value should be (1, 49, 128, 139, 141, 146, 242, 347, 380, 424)
+- **Hashing:** using a dict or set for O(1) lookup, and choosing what the key and value should be (1, 49, 128, 133, 139, 141, 146, 242, 347, 380, 424)
 - **Design:** classes whose state persists between calls, often combining two data structures so each covers the other's weakness (146, 155, 208, 380)
 - **Single pass with a running summary:** scanning once and keeping only what the past tells you (121)
 - **Sliding window:** two pointers moving in the same direction over a sequence; the right edge moves every step, the left edge only when the window breaks a rule (3, 424)
@@ -111,17 +116,18 @@ Every problem README follows the same outline:
 - **Monotonic stack:** a stack of items still waiting for their answer; each new item settles the waiting ones it beats, then waits itself (739)
 - **Binary search:** halving a window that always contains the answer, for a target or for a boundary (33, 153, 704)
 - **Trees and recursion (DFS):** a base case for `None`, then each call handles its own subtree and the parent combines its children's results (98, 100, 104, 226, 230)
-- **Linked lists:** re-linking existing nodes by moving labels and changing `next` pointers, always saving a link before overwriting it (21, 141, 142, 206, 876)
-- **Fast and slow pointers:** two pointers moving at different speeds, to find the middle of a list or detect a cycle and where it starts (142, 876)
+- **Linked lists:** re-linking existing nodes by moving labels and changing `next` pointers, always saving a link before overwriting it; a dummy node in front of the head when the head itself might change (19, 21, 141, 142, 143, 206, 876)
+- **Fast and slow pointers:** two pointers moving at different speeds, to find the middle of a list or detect a cycle and where it starts, or the same speed with a head start of n (19, 142, 143, 876)
 - **Dynamic programming:** answering a big question from smaller versions of itself, computing each smaller answer once and keeping only what's needed (62, 70, 139, 198, 213, 300, 322)
-- **Graphs (grid DFS):** scanning a grid and exploring each connected region once, tracking visited cells (200)
-- **Breadth-first search:** a queue (`collections.deque`) visits nodes in the order they were found, level by level (102, 103, 199, 207, 210)
+- **Graphs (DFS):** following neighbours recursively, with a dict or set of nodes already seen so loops stop (133)
+- **Graphs (grid DFS):** scanning a grid and exploring each connected region once, tracking visited cells (200, 994)
+- **Breadth-first search:** a queue (`collections.deque`) visits nodes in the order they were found, level by level; it can start from several places at once (102, 103, 199, 207, 210, 994)
 - **Topological sort (Kahn's algorithm):** building an adjacency list and in-degree counts, then taking nodes whose count reaches 0; a cycle is whatever never gets taken (207, 210)
 - **Bit manipulation:** using XOR's algebra to cancel out pairs without extra space (136, 268)
 - **Backtracking:** walking a tree of choices. With one shared list or set: choose, explore, undo (39, 46, 78, 79); or pass a new string down each call, so nothing needs undoing (17, 22)
 - **Heaps:** a priority queue that keeps the smallest item at the front, to track the top `k` without sorting everything (215, 347)
 - **Bucket sort:** using a list position to carry meaning, such as a frequency, instead of comparing items (347)
-- **Intervals:** sort by start, then one pass comparing each interval with the last one built (56)
+- **Intervals:** sort by start, then one pass comparing each interval with the last one built; an already sorted list needs only the pass (56, 57)
 - **Prefix and suffix products:** a running value in each direction, so each position combines "everything to the left" and "everything to the right" without recomputing (238)
 - **Binary search trees:** smaller values on the left, bigger on the right; limits passed down the recursion to validate one, and an in-order traversal (left, node, right) to read it in sorted order (98, 230)
 - **Tries:** a tree of letters where words with the same beginning share a path, for fast prefix lookups (208)
